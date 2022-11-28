@@ -23,12 +23,12 @@ def leaderboard(request):
     yesterday = today - datetime.timedelta(days = 1)
     tomorrow = today + datetime.timedelta(days = 1) 
     top_dishes = dish_votes.objects.filter(v_Date=today).all().order_by('-d_Votes').values()
-    print("Length of Top Dishes", len(top_dishes))
+#     print("Length of Top Dishes", len(top_dishes))
     # top_dishes1 = top_dishes.objects.all().order_by('d_Votes')
     # print("Length of Top Dishes1", len(top_dishes1))
     dish = dishes.objects.all()
-    print("All dishes")
-    print(dish)
+#     print("All dishes")
+#     print(dish)
     return render(request, 'dishes.html', {'dish': dish, 'tomorrow':tomorrow, 'top_dishes':top_dishes, 'BASE_DIR':BASE_DIR})
 
 
@@ -52,7 +52,7 @@ def today_votes_dish():
             if uv.v_Date == date.today() and int(uv.dish_Id) == di:
                 dv+=1
         today_dish_votes[di] = dv
-    print('Today Votes',today_dish_votes)
+#     print('Today Votes',today_dish_votes)
     
 
 
